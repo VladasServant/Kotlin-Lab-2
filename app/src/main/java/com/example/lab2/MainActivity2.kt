@@ -35,12 +35,5 @@ private lateinit var binding: ActivityMain2Binding
                     .setAction("Action", null)
                     .setAnchorView(R.id.fab).show()
         }
-
-        val button2: Button = findViewById(R.id.button2)
-        button2.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
     }
 }

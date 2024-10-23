@@ -1,13 +1,16 @@
 package com.example.lab2.ui.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.lab2.MainActivity
 import com.example.lab2.R
 import com.example.lab2.databinding.FragmentMainBinding
 
@@ -41,6 +44,15 @@ private var _binding: FragmentMainBinding? = null
         pageViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
+            val button2: Button = binding.button2
+            button2.setOnClickListener {
+            val intent = Intent(activity, MainActivity::class.java)
+            startActivity(intent) }
+
+        if (arguments?.getInt(ARG_SECTION_NUMBER) == 1 || arguments?.getInt(ARG_SECTION_NUMBER) == 2)
+            button2.visibility = View.INVISIBLE
+
         return root
     }
 
